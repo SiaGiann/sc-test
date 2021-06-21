@@ -1,7 +1,7 @@
 # Configuration of the CI pipeline
 version: '2'
 name: 'Magento slider (forms)'
-canonical: 'mag-forms-all-types-default'
+canonical: 'mag-forms-slider'
 description: 'A stack with 2 pipelines for testing the slider form with single value.'
 keywords:
   - 'stack'
