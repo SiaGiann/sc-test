@@ -1,12 +1,12 @@
 # Configuration of the CI pipeline
 version: '2'
-name: 'Magento (forms)'
-canonical: 'mag-forms-all-types-default'
-description: 'A stack with 2 pipelines. Packed with forms content, including all widgets and types (with default values).'
+name: 'Magento slider (forms)'
+canonical: 'mag-forms-all-types-slider-default'
+description: 'A stack to test sliders.'
 keywords:
   - 'stack'
   - 'public'
-author: 'gaelL & dangz0'
+author: 'sia'
 image: 'https://d29fhpw069ctt2.cloudfront.net/icon/image/38645/preview.svg'
 type: 'stack'
 config:

@@ -54,6 +54,14 @@ first-usecase:
       name: "Slider List (String)"
     - widget: "slider_list"
       required: true
+      type: "string"
+      default: "one"
+      values: ["one"]
+      description: "key: slider_list_string_single"
+      key: "slider_list_string_single"
+      name: "Slider List Single (String)"
+    - widget: "slider_list"
+      required: true
       type: "boolean"
       default: false
       values: [true, false]
