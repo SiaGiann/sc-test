@@ -1,3 +1,4 @@
+---
 # Configuration of the CI pipeline
 version: '2'
 name: 'Magento slider (forms)'
