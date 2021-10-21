@@ -1,0 +1,31 @@
+first-usecase:
+  pipeline:
+    Array:
+    - widget: "dropdown"
+      required: true
+      values: ["aws", "gcp", "azure", "oracle"]
+      type: "string"
+      description: "key: array_of_strings"
+      key: "array_of_strings"
+      name: "Array (String)"
+    - widget: "dropdown"
+      required: false
+      values: [10, 30, 50, 70, 90]
+      type: "integer"
+      description: "key: array_of_integer"
+      key: "array_of_integer"
+      name: "Array (integer)"
+    - widget: "dropdown"
+      required: true
+      values: [[1, 2, 3], [4, 5, 6], ["a", "b", "c"]]
+      type: "array"
+      description: "key: array_of_arrays"
+      key: "array_of_arrays"
+      name: "Array (array)"
+    - widget: "dropdown"
+      required: true
+      values: [{ myvar: 'key' }, { myvar2: true }, { myvar3: 3 }]
+      type: "map"
+      description: "key: array_of_maps"
+      key: "array_of_maps"
+      name: "Array (map)"

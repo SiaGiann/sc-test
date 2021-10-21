@@ -113,6 +113,39 @@ first-usecase:
       description: "key: text_area_map"
       key: "text_area_map"
       name: "Textarea (Map)"
+    Array:
+    - widget: "dropdown"
+      required: true
+      values: ["aws", "gcp", "azure", "oracle"]
+      # default: ["aws"]
+      type: "string"
+      description: "key: array_string"
+      key: "array_string"
+      name: "Array (String)"
+    - widget: "dropdown"
+      required: false
+      values: [10, 30, 50, 70, 90]
+      # default: [1O]
+      type: "integer"
+      description: "key: array_integeR"
+      key: "array_integeR"
+      name: "Array (integer)"
+    - widget: "dropdown"
+      required: true
+      values: [[1, 2, 3], [4, 5, 6], ["a", "b", "c"]]
+      # default: [[1, 2, 3]]
+      type: "array"
+      description: "key: array_array"
+      key: "array_array"
+      name: "Array (array)"
+    - widget: "dropdown"
+      required: true
+      values: [{ myvar: 'key' }, { myvar2: true }, { myvar3: 3 }]
+      # default: [{ myvar2: true }]
+      type: "map"
+      description: "key: array_map"
+      key: "array_map"
+      name: "Array (map)"
     Dropdown:
     - widget: "dropdown"
       required: true

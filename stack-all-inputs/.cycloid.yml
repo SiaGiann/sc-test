@@ -1,0 +1,54 @@
+# Configuration of the CI pipeline
+version: '2'
+name: 'Complete all widgets'
+canonical: 'test-all-types-widgets'
+description: 'A stack with all widget types for testing.'
+keywords:
+  - 'stack'
+  - 'public'
+author: 'sia'
+image: 'https://d29fhpw069ctt2.cloudfront.net/icon/image/38645/preview.svg'
+type: 'stack'
+config:
+  first-usecase:
+    name: 'First pipeline'
+    description: 'This is a pipeline description, necessary to let the user which pipeline to use.'
+    pipeline:
+      pipeline:
+        path: 'pipeline/first/magento.yml'
+      variables:
+        destination: ($ project $)/first/pipeline/variables-($ environment $).yml
+        path: 'pipeline/first/variables.sample.yml'
+
+    # Configuration of ansible for provisionning
+    ansible:
+      magento:
+        path: 'ansible/first/environments/front.yml.sample'
+        destination: '($ project $)/first/ansible/environments/($ environment $)-front.yml'
+
+    # Configuration of terraform to setup the infrastructure
+    terraform:
+      magento:
+        path: 'terraform/first/magento.tf.sample'
+        destination: '($ project $)/first/terraform/magento/($ environment $)/magento.tf'
+  terraform-submodules:
+    name: 'Terraform submodules'
+    description: 'This is another pipeline description, necessary to let the user which pipeline to use.'
+    pipeline:
+      pipeline:
+        path: 'pipeline/second/magento.yml'
+      variables:
+        destination: ($ project $)/second/pipeline/variables-($ environment $).yml
+        path: 'pipeline/second/variables.sample.yml'
+
+    # Configuration of ansible for provisionning
+    ansible:
+      magento:
+        path: 'ansible/second/environments/front.yml.sample'
+        destination: '($ project $)/second/ansible/environments/($ environment $)-front.yml'
+
+    # Configuration of terraform to setup the infrastructure
+    terraform:
+      magento:
+        path: 'terraform/second/magento.tf.sample'
+        destination: '($ project $)/second/terraform/magento/($ environment $)/magento.tf'

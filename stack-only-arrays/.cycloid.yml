@@ -1,7 +1,7 @@
 # Configuration of the CI pipeline
 version: '2'
-name: 'Magento slider (forms)'
-canonical: 'mag-forms-all-types-slider-default'
+name: 'Test array type widgets'
+canonical: 'test-array-type-widgets'
 description: 'A stack to test sliders.'
 keywords:
   - 'stack'
@@ -31,24 +31,3 @@ config:
       magento:
         path: 'terraform/first/magento.tf.sample'
         destination: '($ project $)/first/terraform/magento/($ environment $)/magento.tf'
-  terraform-submodules:
-    name: 'Terraform submodules'
-    description: 'This is another pipeline description, necessary to let the user which pipeline to use.'
-    pipeline:
-      pipeline:
-        path: 'pipeline/second/magento.yml'
-      variables:
-        destination: ($ project $)/second/pipeline/variables-($ environment $).yml
-        path: 'pipeline/second/variables.sample.yml'
-
-    # Configuration of ansible for provisionning
-    ansible:
-      magento:
-        path: 'ansible/second/environments/front.yml.sample'
-        destination: '($ project $)/second/ansible/environments/($ environment $)-front.yml'
-
-    # Configuration of terraform to setup the infrastructure
-    terraform:
-      magento:
-        path: 'terraform/second/magento.tf.sample'
-        destination: '($ project $)/second/terraform/magento/($ environment $)/magento.tf'
