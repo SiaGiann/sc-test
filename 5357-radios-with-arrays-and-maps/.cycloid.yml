@@ -1,0 +1,33 @@
+# Configuration of the CI pipeline
+version: '2'
+name: 'Test required radios with maps and arrays'
+canonical: 'test-radio-array-map-widgets'
+description: 'A stack to test required values with radios with array/map values.'
+keywords:
+  - 'stack'
+  - 'public'
+author: 'sia'
+image: 'https://d29fhpw069ctt2.cloudfront.net/icon/image/38645/preview.svg'
+type: 'stack'
+config:
+  first-usecase:
+    name: 'First pipeline'
+    description: 'This is a pipeline description, necessary to let the user which pipeline to use.'
+    pipeline:
+      pipeline:
+        path: 'pipeline/first/magento.yml'
+      variables:
+        destination: ($ project $)/first/pipeline/variables-($ environment $).yml
+        path: 'pipeline/first/variables.sample.yml'
+
+    # Configuration of ansible for provisionning
+    ansible:
+      magento:
+        path: 'ansible/first/environments/front.yml.sample'
+        destination: '($ project $)/first/ansible/environments/($ environment $)-front.yml'
+
+    # Configuration of terraform to setup the infrastructure
+    terraform:
+      magento:
+        path: 'terraform/first/magento.tf.sample'
+        destination: '($ project $)/first/terraform/magento/($ environment $)/magento.tf'

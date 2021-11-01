@@ -1,0 +1,35 @@
+first-usecase:
+  pipeline:
+    Radios:
+    - widget: "radios"
+      required: true
+      values: ["un", "dos", "tres"]
+      default: "tres"
+      type: "string"
+      description: "key: radios_string"
+      key: "radios_string"
+      name: "Radios (String)"
+    - widget: "radios"
+      required: false
+      values: [1, 2, 3]
+      default: 3
+      type: "integer"
+      description: "key: radios_integer"
+      key: "radios_integer"
+      name: "Radios (Integer)"
+    - widget: "radios"
+      required: true
+      values: [[1, 2, 3], [4, 5, 6], ["a", "b", "c"]]
+      default: [4, 5, 6]
+      type: "array"
+      description: "key: radios_array"
+      key: "radios_array"
+      name: "Radios (Array)"
+    - widget: "radios"
+      required: true
+      values: [{ myvar: 'key' }, { myvar2: true }, { myvar3: 3 }]
+      default: { myvar3: 3 }
+      type: "map"
+      description: "key: radios_map"
+      key: "radios_map"
+      name: "Radios (Map)"
