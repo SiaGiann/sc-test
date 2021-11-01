@@ -15,8 +15,8 @@ first-usecase:
       values: [1, 2, 3]
       default: 3
       type: "integer"
-      description: "key: radios_integer_required"
-      key: "radios_integer_required"
+      description: "key: radios_integer"
+      key: "radios_integer"
       name: "Not required radio (integer)"
 
     - widget: "radios"
