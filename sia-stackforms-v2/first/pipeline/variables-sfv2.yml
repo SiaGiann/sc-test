@@ -63,7 +63,7 @@ scs_string: https://github.com/SiaGiann/sc-test
 simple_text_string: test
 slider_list_boolean: false
 slider_list_integer: 4
-slider_list_string: tres
+slider_list_string: un
 slider_range_integer: 15
 switch_boolean: true
 terraform_storage_access_key: '...'
@@ -78,4 +78,4 @@ text_area_boolean: false
 text_area_integer: 3
 text_area_map:
   myvar3: 3
-text_area_string: extra info here
+text_area_string: extra info here for testing v2
