@@ -60,7 +60,7 @@ radios_map:
   myvar3: 3
 radios_string: tres
 scs_string: https://github.com/SiaGiann/sc-test
-simple_text_string: tester
+simple_text_string: tester2
 slider_list_boolean: false
 slider_list_integer: 4
 slider_list_string: un
