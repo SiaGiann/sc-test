@@ -42,7 +42,7 @@ module "eks" {
   source = "./module-eks"
 
   cluster_name       = module.config.cluster_name
-  cluster_version    = "1.18"
+  cluster_version    = "1.17"
   customer           = var.customer
   env                = var.env
   project            = var.project
