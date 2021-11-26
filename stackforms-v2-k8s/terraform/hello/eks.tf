@@ -72,7 +72,7 @@ module "eks-node" {
   node_launch_template_profile        = "ondemand"
   node_sg_id                          = module.eks.node_sg_id
   node_spot_price                     = "0.3"
-  node_type                           = "c5.xlarge"
+  node_type                           = "c5.large"
   private_subnets_ids                 = module.vpc.private_subnets
   project                             = var.project
   vpc_id                              = module.vpc.vpc_id
