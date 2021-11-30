@@ -31,10 +31,10 @@ frontend_stack_path: cycloid-frontend2
 node_pool_name: kubernetes-staging
 organization: cycloid
 project: playground-hugo
-scw_access_key: ""
-scw_default_region: fr-par
-scw_organization_id: ""
-scw_secret_key: ""
+scw_access_key: ((aws_minio))
+scw_default_region: fr-paris
+scw_organization_id: ((azure_admin_azure))
+scw_secret_key: ((cycloid-worker-keys))
 stack_git_branch: stacks
 stack_git_private_key: ""
 stack_git_repository: ""
