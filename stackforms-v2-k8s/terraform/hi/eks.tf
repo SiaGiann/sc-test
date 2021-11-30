@@ -67,7 +67,7 @@ module "eks-node" {
   node_disk_type                      = "gp2"
   node_ebs_optimized                  = true
   node_enable_cluster_autoscaler_tags = false
-  node_group_name                     = "standard"
+  node_group_name                     = "($ scs_url $):($ scs_branch $)__($ cr_url $)-($ cr_branch $)"
   node_iam_instance_profile_name      = module.eks.node_iam_instance_profile_name
   node_launch_template_profile        = "ondemand"
   node_sg_id                          = module.eks.node_sg_id
