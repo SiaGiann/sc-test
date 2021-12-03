@@ -37,13 +37,16 @@ onprem_gcp_cred_name: gcp_terraform
 onprem_minio_access_key: AKIAIOSFODNN7EXAMPLE
 onprem_minio_secret_key: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 project: sharedvars
-shared2_array: 1
-shared2_bool: false
-shared2_string: ap-northeast-1
-shared3_integer: 68
+shared2_array:
+- 4
+- 5
+- 6
+shared2_bool: true
+shared2_string: ca-central-1
+shared3_integer: 32
 shared3_map:
-  bar: foo
-shared3_string: meaningful
+  bar: bie
+shared3_string: meaningful2
 stack_git_branch: master
 terraform_storage_bucket_name: cycloid-terraform-remote-state
 terraform_version: 1.0.7

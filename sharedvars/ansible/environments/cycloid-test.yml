@@ -47,7 +47,7 @@ cycloid_initial_user:
 cycloid_public_stacks: true
 saml_auth_enabled: false
 saml_idp_metadata_url: https://samltest.id/saml/idp
-shared3_integer: 68
+shared3_integer: 32
 shared3_map:
-  bar: foo
-shared3_string: meaningful
+  bar: bie
+shared3_string: meaningful2
