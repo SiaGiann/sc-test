@@ -31,17 +31,17 @@ module "onprem" {
   project            = var.project
   public_subnets_ids = "${data.terraform_remote_state.infrastructure.outputs.test_public_subnets_ids}"
   shared2_array = [
-    4,
-    5,
-    6
+    1,
+    2,
+    3
   ]
-  shared2_bool    = true
-  shared2_string  = "ca-central-1"
-  shared3_integer = 32
+  shared2_bool    = false
+  shared2_string  = "eu-central-1"
+  shared3_integer = 100
   shared3_map = {
-    bar = "bie"
+    foo = "bar"
   }
-  shared3_string = "meaningful2"
+  shared3_string = "meaning"
   vpc_id         = "${data.terraform_remote_state.infrastructure.outputs.test_vpc_id}"
 }
 

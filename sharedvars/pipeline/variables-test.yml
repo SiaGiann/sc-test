@@ -38,15 +38,15 @@ onprem_minio_access_key: AKIAIOSFODNN7EXAMPLE
 onprem_minio_secret_key: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 project: sharedvars
 shared2_array:
-- 4
-- 5
-- 6
-shared2_bool: true
-shared2_string: ca-central-1
-shared3_integer: 32
+- 1
+- 2
+- 3
+shared2_bool: false
+shared2_string: eu-central-1
+shared3_integer: 100
 shared3_map:
-  bar: bie
-shared3_string: meaningful2
+  foo: bar
+shared3_string: meaning
 stack_git_branch: master
 terraform_storage_bucket_name: cycloid-terraform-remote-state
 terraform_version: 1.0.7
