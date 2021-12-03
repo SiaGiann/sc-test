@@ -35,7 +35,7 @@ module "onprem" {
     2,
     3
   ]
-  shared2_bool    = false
+  shared2_bool    = true
   shared2_string  = "eu-central-1"
   shared3_integer = 100
   shared3_map = {
