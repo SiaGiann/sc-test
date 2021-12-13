@@ -15,7 +15,7 @@ aws_access_key: ""
 aws_default_region: eu-west-1
 aws_secret_key: ""
 config_ansible_path: testtest/ansible
-config_branch: ($ cr_branch $)
+config_branch: master
 config_git_branch: config
 config_git_private_key: ""
 config_git_repository: ""
