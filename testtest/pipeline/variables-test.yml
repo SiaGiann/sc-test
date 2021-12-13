@@ -19,7 +19,7 @@ config_branch: master
 config_git_branch: config
 config_git_private_key: ""
 config_git_repository: ""
-config_repo: ($ cr_uri $)
+config_repo: git@github.com:SiaGiann/sc-test.git
 config_terraform_path: testtest/terraform/test
 customer: cycloid
 cycloid_api_image: $BACKEND_IMAGE_TAG
@@ -47,6 +47,6 @@ shared3_map: 4
 shared3_string: 6
 stack_branch: stacks
 stack_git_branch: master
-stack_repo: ($ scs_uri $)
+stack_repo: git@github.com:cycloidio/onprem-test.git
 terraform_storage_bucket_name: cycloid-terraform-remote-state
 terraform_version: 1.0.7
