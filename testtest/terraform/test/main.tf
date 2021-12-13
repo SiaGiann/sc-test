@@ -36,7 +36,7 @@ module "onprem" {
     "${c}"
   ]
   shared2_bool    = true
-  shared2_string  = "eu-west-1"
+  shared2_string  = "eu-west-2"
   shared3_integer = 42
   shared3_map = {
     fi = "foo"

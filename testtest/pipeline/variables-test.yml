@@ -41,7 +41,7 @@ onprem_minio_secret_key: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 project: testtest
 shared2_array: 1
 shared2_bool: true
-shared2_string: eu-west-1
+shared2_string: eu-west-2
 shared3_integer: 42
 shared3_map: 4
 shared3_string: 6
