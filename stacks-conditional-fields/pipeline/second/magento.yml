@@ -1,0 +1,82 @@
+groups:
+
+- name: magento-((env))
+  jobs:
+  - magento-((env))-build
+
+resource_types:
+
+- name: terraform
+  type: docker-image
+  source:
+    repository: ljfranklin/terraform-resource
+
+resources:
+
+- name: magento-release
+  type: s3
+  source:
+    bucket: ((magento_deploy_bucket_name))
+    #regexp: magento/((env))/magento-((env)).tar.gz
+    versioned_file: ((magento_deploy_bucket_object_path))
+    private: true
+    region_name: ((magento_deploy_bucket_region))
+    access_key_id: ((magento_deploy_bucket_access_key))
+    secret_access_key: ((magento_deploy_bucket_secret_access_key))
+
+- name: magento-code
+  type: git
+  source:
+    uri: ((magento_git_repository))
+    branch: ((magento_git_branch))
+    check_every: 2m
+    private_key: ((magento_git_private_key))
+
+
+jobs:
+  - name: magento-((env))-build
+    max_in_flight: 1
+    build_logs_to_retain: 10
+    plan:
+    - do:
+      - get: magento-code
+        trigger: true
+
+      - task: build-release
+        config:
+          platform: linux
+          image_resource:
+            type: docker-image
+            source:
+              repository: cycloid/composer
+              tag: latest
+          run:
+            path: /bin/bash
+            args:
+            - -xec
+            - |
+              DIR=${PWD}
+
+              echo "### Build release"
+              cd ${DIR}/code
+
+              composer install --optimize-autoloader --ignore-platform-reqs
+
+              php bin/magento module:enable --all
+
+              php bin/magento setup:di:compile -v
+
+              echo "# create the archive release"
+              cd ${DIR}
+              tar zcf ${PWD}/release/magento-release.tar.gz code
+          # params:
+          inputs:
+          - name: magento-code
+            path: code
+          outputs:
+          - name: release
+            path: "release"
+      - put: magento-release
+        params:
+          acl: private
+          file: release/magento-release.tar.gz

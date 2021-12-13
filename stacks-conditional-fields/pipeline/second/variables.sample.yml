@@ -1,0 +1,6 @@
+env: ($ environment $)
+magento_deploy_bucket_name: magento-deploy
+magento_deploy_bucket_object_path: /catalog-magento/($ environment $)/magento.tar.gz
+magento_deploy_bucket_region: eu-west-1
+magento_deploy_bucket_access_key: ...
+magento_deploy_bucket_secret_access_key: ...
