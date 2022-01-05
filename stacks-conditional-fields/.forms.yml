@@ -51,7 +51,7 @@ use_cases:
                 name: "checkbox for advance config"
           - name: advanced2
             technologies: [ansible]
-            condition: "key-advanced2>3.0"
+            condition: "key-advanced2>3"
             vars:
               - widget: "slider_range"
                 required: false
@@ -79,7 +79,7 @@ use_cases:
                 name: "checkbox for advance config"
           - name: advanced3
             technologies: [ansible]
-            condition: "key-advanced3<=3.0"
+            condition: "key-advanced3<=3"
             vars:
               - widget: "slider_range"
                 required: false
