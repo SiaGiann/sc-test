@@ -1,0 +1,21 @@
+# Configuration of the CI pipeline
+version: '2'
+name: 'Stacks with float numbers'
+canonical: 'stacks-with-float-numbers'
+description: 'Test for float numbers.'
+keywords:
+  - 'stack'
+  - 'public'
+author: 'sia'
+image: 'https://d29fhpw069ctt2.cloudfront.net/icon/image/38645/preview.svg'
+type: 'stack'
+config:
+  prod:
+    name: 'First pipeline'
+    description: 'This is a pipeline description, necessary to let the user which pipeline to use.'
+    pipeline:
+      pipeline:
+        path: 'pipeline/first/magento.yml'
+      variables:
+        destination: ($ project $)/first/pipeline/variables-($ environment $).yml
+        path: 'pipeline/first/variables.sample.yml'

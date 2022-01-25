@@ -1,0 +1,148 @@
+version: 2
+use_cases:
+  - name: prod
+    sections:
+      - name: ansible
+        groups:
+          - name: basics1
+            technologies: [ansible]
+            vars:
+              - widget: "simple_text"
+                unit: "($, GHz, GB)"
+                required: false
+                type: "string"
+                description: ""
+                key: "key-one"
+                name: "some text"
+              - widget: "radios"
+                default: true
+                values: [true, false]
+                type: "boolean"
+                description: ""
+                key: "key-advanced1"
+                name: "checkbox for advance config"
+          - name: advanced1
+            technologies: [ansible]
+            condition: "key-advanced1==true"
+            vars:
+              - widget: "slider_range"
+                required: false
+                default: 2
+                unit: "($, GHz, GB)"
+                type: "integer"
+                description: "something k1"
+                values: [1, 100]
+                key: "key-eleven"
+                name: "integer variable"
+          - name: basics2
+            technologies: [ansible]
+            vars:
+              - widget: "simple_text"
+                unit: "($, GHz, GB)"
+                required: false
+                type: "string"
+                description: ""
+                key: "key-two"
+                name: "some text"
+              - widget: "number"
+                type: "float"
+                description: ""
+                key: "key-advanced2"
+                name: "checkbox for advance config"
+          - name: advanced2
+            technologies: [ansible]
+            condition: "key-advanced2>3.0"
+            vars:
+              - widget: "slider_range"
+                required: false
+                default: 2
+                unit: "($, GHz, GB)"
+                type: "integer"
+                description: "something k1"
+                values: [1, 100]
+                key: "key-twelve"
+                name: "integer variable"
+          - name: basics3
+            technologies: [ansible]
+            vars:
+              - widget: "simple_text"
+                unit: "($, GHz, GB)"
+                required: false
+                type: "string"
+                description: ""
+                key: "key-three"
+                name: "some text"
+              - widget: "number"
+                type: "float"
+                description: ""
+                key: "key-advanced3"
+                name: "checkbox for advance config"
+          - name: advanced3
+            technologies: [ansible]
+            condition: "key-advanced3<=3.0"
+            vars:
+              - widget: "slider_range"
+                required: false
+                default: 2
+                unit: "($, GHz, GB)"
+                type: "integer"
+                description: "something k1"
+                values: [1, 100]
+                key: "key-thirteen"
+                name: "integer variable"
+          - name: basics4
+            technologies: [ansible]
+            vars:
+              - widget: "simple_text"
+                unit: "($, GHz, GB)"
+                required: false
+                type: "string"
+                description: ""
+                key: "key-four"
+                name: "some text"
+              - widget: "number"
+                type: "integer"
+                description: ""
+                key: "key-advanced4"
+                name: "checkbox for advance config"
+          - name: advanced4
+            technologies: [ansible]
+            condition: "key-advanced4>2"
+            vars:
+              - widget: "slider_range"
+                required: false
+                default: 2
+                unit: "($, GHz, GB)"
+                type: "integer"
+                description: "something k1"
+                values: [1, 100]
+                key: "key-fourteen"
+                name: "integer variable"
+          - name: basics5
+            technologies: [ansible]
+            vars:
+              - widget: "simple_text"
+                unit: "($, GHz, GB)"
+                required: false
+                type: "string"
+                description: ""
+                key: "key-five"
+                name: "some text"
+              - widget: "number"
+                type: "integer"
+                description: ""
+                key: "key-advanced5"
+                name: "checkbox for advance config"
+          - name: advanced5
+            technologies: [ansible]
+            condition: "key-advanced5<=2"
+            vars:
+              - widget: "slider_range"
+                required: false
+                default: 2
+                unit: "($, GHz, GB)"
+                type: "integer"
+                description: "something k1"
+                values: [1, 100]
+                key: "key-fifteen"
+                name: "integer variable"
