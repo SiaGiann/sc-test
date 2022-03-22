@@ -21,8 +21,6 @@ use_cases:
                 description: ""
                 key: "key-advanced1"
                 name: "checkbox for advance config"
-                widget_config:
-                  orientation: vertical
           - name: advanced1
             technologies: [ansible]
             condition: "key-advanced1==true"
