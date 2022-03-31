@@ -34,3 +34,4 @@ magento_config_git_private_key: |-
 
   -- FORMS --
 replicas: 2
+frequency: 1.2

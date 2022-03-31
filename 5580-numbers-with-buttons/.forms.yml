@@ -8,3 +8,10 @@ first-usecase:
       description: "Count of replicas"
       key: "replicas"
       name: "Replicas count"
+    - widget: "number"
+      required: true
+      default: 1.2
+      type: "float"
+      description: "CPU frequency"
+      key: "frequency"
+      name: "CPU frequency"
