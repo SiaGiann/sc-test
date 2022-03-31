@@ -1,0 +1,21 @@
+# Configuration of the CI pipeline
+version: '2'
+name: 'Numbers appended by icons'
+canonical: '5580-numbers-with-buttons'
+description: 'A stack to test numeric inputs appended by icons'
+keywords:
+  - 'stack'
+  - 'public'
+author: 'sia'
+image: 'https://d29fhpw069ctt2.cloudfront.net/icon/image/38645/preview.svg'
+type: 'stack'
+config:
+  first-usecase:
+    name: 'First pipeline'
+    description: 'This is a pipeline description, necessary to let the user which pipeline to use.'
+    pipeline:
+      pipeline:
+        path: 'pipeline/first/magento.yml'
+      variables:
+        destination: ($ project $)/first/pipeline/variables-($ environment $).yml
+        path: 'pipeline/first/variables.sample.yml'

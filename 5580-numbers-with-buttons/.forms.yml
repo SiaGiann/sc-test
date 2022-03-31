@@ -1,0 +1,10 @@
+first-usecase:
+  pipeline:
+    Number:
+    - widget: "number"
+      required: true
+      default: 2
+      type: "integer"
+      description: "Count of replicas"
+      key: "replicas"
+      name: "Replicas count"
