@@ -1,0 +1,111 @@
+version: 2
+use_cases:
+  - name: prod
+    sections:
+      - name: pipeline
+        groups:
+          - name: deployment
+            technologies: [ansible, terraform]
+            vars:
+              - widget: "dropdown"
+                required: true
+                values: ["aws", "gcp", "azure"]
+                default: "aws"
+                type: "string"
+                description: "Preferred cloud provider"
+                key: "provider"
+                name: "Cloud provider"
+              - widget: "switch"
+                required: true
+                default: true
+                type: "boolean"
+                description: "Provision cloud infra?"
+                key: "provision"
+                name: "Provision"
+
+      - name: ansible
+        groups:
+          - name: Cloud compute
+            condition: "provision==true"
+            technologies: [ansible]
+            vars:
+              - widget: "switch"
+                required: true
+                default: true
+                type: "boolean"
+                description: "NodeJS 17.x"
+                key: "node"
+                name: "Install Node"
+              - widget: "switch"
+                required: true
+                default: false
+                type: "boolean"
+                description: "Python 3.10.x"
+                key: "python"
+                name: "Install Python"
+              - widget: "switch"
+                required: true
+                default: false
+                type: "boolean"
+                description: "Rust 1.60.x"
+                key: "rust"
+                name: "Install Rust"
+
+      - name: terraform
+        groups:
+          - name: Amazon Web Services
+            condition: "provider==aws"
+            technologies: [terraform]
+            vars:
+              - widget: "number"
+                required: true
+                default: 2
+                type: "integer"
+                description: "Count of replicas"
+                key: "aws_replicas"
+                name: "Replicas count"
+              - widget: "number"
+                required: true
+                default: 1.2
+                type: "float"
+                description: "CPU frequency"
+                key: "aws_frequency"
+                name: "CPU frequency"
+
+          - name: Google Cloud Platform
+            condition: "provider==gcp"
+            technologies: [terraform]
+            vars:
+              - widget: "number"
+                required: true
+                default: 2
+                type: "integer"
+                description: "Count of replicas"
+                key: "gcp_replicas"
+                name: "Replicas count"
+              - widget: "number"
+                required: true
+                default: 1.2
+                type: "float"
+                description: "CPU frequency"
+                key: "gcp_frequency"
+                name: "CPU frequency"
+
+          - name: Microsoft Azure
+            condition: "provider==azure"
+            technologies: [terraform]
+            vars:
+              - widget: "number"
+                required: true
+                default: 2
+                type: "integer"
+                description: "Count of replicas"
+                key: "azure_replicas"
+                name: "Replicas count"
+              - widget: "number"
+                required: true
+                default: 1.2
+                type: "float"
+                description: "CPU frequency"
+                key: "azure_frequency"
+                name: "CPU frequency"
