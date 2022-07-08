@@ -1,0 +1,29 @@
+version: 2
+use_cases:
+- name: default
+  sections:
+  - name: Applicationeés
+    groups:
+    - name: Configuration
+      technologies: [ansible]
+      vars:
+      - name: Application namé
+        description: What is the name of your app?
+        key: app_name
+        widget: simple_text
+        type: string
+      - name: Advanced configuration
+        description: Do you wish to make advanced configuration?
+        key: app_advanced
+        widget: switch
+        type: boolean
+        default: false
+    - name: Advanced configuration
+      technologies: [ansible]
+      condition: 'app_advanced==true'
+      vars:
+      - name: Application port
+        description: On which port to listen to?
+        key: app_port
+        widget: simple_text
+        type: string

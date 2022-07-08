@@ -1,0 +1,34 @@
+# Configuration of the CI pipeline
+version: '2'
+name: 'Conditions with accents'
+canonical: 'test-conditions-with-accents'
+description: 'A stack to test issue FE #6242.'
+keywords:
+  - 'stack'
+  - 'public'
+author: 'sia'
+image: 'https://d29fhpw069ctt2.cloudfront.net/icon/image/38645/preview.svg'
+type: 'stack'
+config:
+  default:
+    name: 'Default pipeline'
+    description: 'This is a pipeline description, necessary to let the user which pipeline to use.'
+    pipeline:
+      pipeline:
+        path: 'pipeline/default/magento.yml'
+      variables:
+        destination: ($ project $)/default/pipeline/variables-($ environment $).yml
+        path: 'pipeline/default/variables.sample.yml'
+
+    # Configuration of ansible for provisionning
+    ansible:
+      magento:
+        path: 'ansible/default/environments/front.yml.sample'
+        destination: '($ project $)/default/ansible/environments/($ environment $)-front.yml'
+
+    # Configuration of terraform to setup the infrastructure
+    terraform:
+      magento:
+        path: 'terraform/default/magento.tf.sample'
+        destination: '($ project $)/default/terraform/magento/($ environment $)/magento.tf'
+  
