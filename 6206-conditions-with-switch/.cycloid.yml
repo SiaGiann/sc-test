@@ -1,0 +1,29 @@
+---
+version: '2'
+name: Conditions with switch are failing
+canonical: 6206-conditions-with-switch-are-failing
+description: |
+  Used to test issue [#6206](https://github.com/cycloidio/youdeploy-frontend-web/issues/6206)
+keywords:
+  - formsv2
+  - forms
+  - cycloid
+  - stack
+  - stacks
+author: Cycloid
+image: https://www.cycloid.io/themes/cycloid/images/owl_logo.png
+
+config:
+  default:
+    name: default
+    description: Default
+    pipeline:
+      pipeline:
+        path: pipeline/pipeline.yml
+      variables:
+        path: pipeline/variables.sample.yml
+        destination: '($ project $)/pipeline/($ environment $)/variables.yml'
+    ansible:
+      stack:
+        path: 'stack_yml/vars.yml.sample'
+        destination: '($ project $)/stack_yml/($ environment $)/vars.yml'
