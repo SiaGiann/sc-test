@@ -1,6 +1,6 @@
 version: "2"
 use_cases:
-- name: first-usecase
+- name: default
   sections:
   - name: default
     sections:
