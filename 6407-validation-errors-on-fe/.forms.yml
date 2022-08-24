@@ -3,7 +3,7 @@ use_cases:
 - name: default
   sections:
   - name: default
-    sections:
+    groups:
     - name: Ansible
       groups:
       - name: Environment
