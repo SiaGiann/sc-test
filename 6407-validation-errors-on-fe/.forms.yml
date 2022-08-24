@@ -1,0 +1,23 @@
+version: "2"
+use_cases:
+- name: first-usecase
+  sections:
+  - name: default
+    sections:
+    - name: Ansible
+      groups:
+      - name: Environment
+        technologies: [ansible]
+        vars:
+          - name: Environment
+            description: ""
+            key: environment
+            widget: dropdown
+            type: string
+            values: ["Dev", "UAT", "Prod"]
+          - name: Raw
+            description: ""
+            key: raw_params
+            widget: text_area
+            type: raw
+            default: |+

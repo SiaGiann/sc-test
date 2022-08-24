@@ -1,0 +1,23 @@
+---
+version: '2'
+name: Validation errors originating from BE are not displayed
+canonical: 6407-validation-errors-on-fe
+description: |
+  Used to test issue [#6407](https://github.com/cycloidio/youdeploy-frontend-web/issues/6407)
+keywords:
+  - formsv2
+  - forms
+  - cycloid
+  - stack
+  - stacks
+author: Cycloid
+image: https://www.cycloid.io/themes/cycloid/images/owl_logo.png
+
+config:
+  default:
+    name: default
+    description: Default
+    ansible:
+      stack:
+        path: 'ansible/vars.yml.sample'
+        destination: '($ project $)/ansible/($ environment $)/vars.yml'
