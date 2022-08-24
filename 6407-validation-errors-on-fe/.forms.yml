@@ -4,20 +4,18 @@ use_cases:
   sections:
   - name: default
     groups:
-    - name: Ansible
-      groups:
-      - name: Environment
-        technologies: [ansible]
-        vars:
-          - name: Environment
-            description: ""
-            key: environment
-            widget: dropdown
-            type: string
-            values: ["Dev", "UAT", "Prod"]
-          - name: Raw
-            description: ""
-            key: raw_params
-            widget: text_area
-            type: raw
-            default: |+
+    - name: Environment
+      technologies: [ansible]
+      vars:
+        - name: Environment
+          description: ""
+          key: environment
+          widget: dropdown
+          type: string
+          values: ["Dev", "UAT", "Prod"]
+        - name: Raw
+          description: ""
+          key: raw_params
+          widget: text_area
+          type: raw
+          default: |+
