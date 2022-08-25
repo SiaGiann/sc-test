@@ -1,0 +1,45 @@
+groups:
+
+- name: pipeline-((env))
+  jobs:
+  - pipeline-((env))-unittests
+
+resource_types:
+- name: terraform
+  type: docker-image
+  source:
+    repository: ljfranklin/terraform-resource
+
+resources:
+- name: pipeline-code
+  type: git
+  source:
+    uri: https://github.com/nuxt/nuxt.js/
+    branch: dev
+    check_every: 2h
+    private_key: dsasdasdasd
+
+jobs:
+  - name: pipeline-((env))-unittests
+    max_in_flight: 1
+    build_logs_to_retain: 10
+    plan:
+    - do:
+      - get: pipeline-code
+        trigger: true
+
+      - task: run
+        config:
+          platform: linux
+          image_resource:
+            type: docker-image
+            source:
+              repository: cycloid/busybox
+              tag: latest
+          run:
+            path: /bin/bash
+            args:
+            - -xec
+            - |
+              DIR=${PWD}
+              echo "Dummy tests OK"

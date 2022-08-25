@@ -17,6 +17,13 @@ config:
   default:
     name: default
     description: Default
+    pipeline:
+      pipeline:
+        path: 'pipeline/pipeline.yml'
+      variables:
+        destination: ($ project $)/pipeline/variables-($ environment $).yml
+        path: 'pipeline/variables.sample.yml'
+
     ansible:
       stack:
         path: 'ansible/vars.yml.sample'
