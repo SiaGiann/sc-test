@@ -1,0 +1,100 @@
+---
+version: "2"
+use_cases:
+- name: aws
+  sections:
+  - name: NodeJS Server
+    groups:
+    - name: NodeJS Application
+      technologies: [terraform]
+      vars:
+      - name: "React Webapp Git URL"
+        description: "Public Git URL of the React web application to build and deploy."
+        key: git_app_url
+        widget: auto_complete
+        type: string
+        values: ["https://github.com/Rahul-Pandey7/react-image-compressor.git","https://github.com/Yog9/SnapShot.git","https://github.com/ahfarmer/calculator.git","https://github.com/ahfarmer/emoji-search.git"]
+        default: "https://github.com/Yog9/SnapShot.git"
+        required: true
+    - name: Virtual machine specifications
+      technologies: [terraform]
+      vars:
+      - name: "Instance type"
+        description: "Instance type for the VM."
+        key: vm_instance_type
+        widget: slider_list
+        type: string
+        default: "t3a.medium"
+        values:
+            - "t3a.small"
+            - "t3a.medium"
+            - "t3a.large"
+        required: true
+      - name: "Disk size"
+        unit: Go
+        description: "Disk size for the VM."
+        key: vm_disk_size
+        widget: slider_range
+        type: integer
+        default: 30
+        values:
+            - 30
+            - 250
+        required: true
+    - name: Subnet Selection
+      technologies: [pipeline]
+      vars:
+      - name: "Enter Subnet ID Manually"
+        description: "Whether to use the Cycloid Asset Inventory to select a Subnet ID, or to enter it manually. To populate your subnet in Cycloid Inventory, you may want to use the Networking stack template."
+        key: edit_subnet
+        widget: switch
+        type: boolean
+        default: false
+    - name: Subnet ID Selection from Asset Inventory
+      technologies: [pipeline]
+      condition: '$edit_subnet == false'
+      vars:
+      - name: "Public Subnet ID"
+        description: "Public subnet ID where to deploy the EC2 instance. Must belong to the region stated below in this form."
+        key: inventory_subnet_id
+        widget: cy_inventory_resource
+        widget_config:
+          attribute: id
+          filters:
+            type: aws_subnet
+        type: string
+        default: ""
+        required: true
+    - name: Enter Subnet ID Manually
+      technologies: [pipeline]
+      condition: '$edit_subnet == true'
+      vars:
+      - name: "Public Subnet ID"
+        description: "Public subnet ID where to deploy the EC2 instance. Must belong to the region stated below in this form."
+        key: edit_subnet_id
+        widget: simple_text
+        type: string
+        default: ""
+        required: true
+    - name: AWS Access Configuration
+      technologies: [pipeline]
+      vars:
+      - name: "AWS account"
+        description: "The AWS account where to deploy the infrastructure. It contains access key and secret key."
+        key: aws_cred
+        widget: cy_cred
+        widget_config:
+          display_keys: false
+          cred_types:
+            - aws
+        type: string
+        default: "((aws))"
+        required: true
+      - name: "AWS region"
+        description: "AWS region to use for Terraform."
+        key: aws_region
+        widget: auto_complete
+        type: string
+        values_ref: https://cycloid-demo-stackforms-values.s3.eu-west-1.amazonaws.com/aws-regions.json
+        default: eu-west-1
+        required: true
